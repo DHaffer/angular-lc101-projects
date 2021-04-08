@@ -34,7 +34,7 @@
    </div>
    <div class="container-control-buttons">
       <button (click)="handleTakeOff()" (click)="takeOffEnabled = false" [disabled]="!takeOffEnabled">Take Off</button>
-      <button (click)="handleLanding()" (click)="takeOffEnabled = true" [disabled]="takeOffEnabled">Land</button>
+      <button (click)="handleLanding()"  [disabled]="takeOffEnabled">Land</button>
       <button (click)="handleAbortMission()" [disabled]="takeOffEnabled">Abort Mission</button>
    </div>
 </div>
