@@ -13,6 +13,14 @@ export class AppComponent {
   width = 0;
   message = 'Space shuttle ready for takeoff!';
 
+  gutterCheck(width, height) {
+    if (width > 260000 || width < 0 || height < 0 || height > 340000) {
+      this.color = 'orange';
+    } else {
+      this.color = 'blue';
+    }
+  }
+  
   handleTakeOff() {
     let result = window.confirm('Are you sure the shuttle is ready for takeoff?');
     if(result) {
@@ -29,6 +37,7 @@ export class AppComponent {
       this.color = 'green';
       this.height = 0;
       this.message = 'The shuttle has landed.';
+      this.takeOffEnabled = false;
       rocketImage.style.bottom = '0px';
     }
   }
@@ -39,6 +48,7 @@ export class AppComponent {
       this.color = 'red';
       this.height = 0;
       this.message = 'Mission aborted.'
+      this.takeOffEnabled = false;
       rocketImage.style.bottom = '0px';
     }
   }
@@ -64,5 +74,6 @@ export class AppComponent {
       rocketImage.style.bottom = movement;
       this.height = this.height + 10000;
     }
+    this.gutterCheck(this.width, this.height);
   }
 }
